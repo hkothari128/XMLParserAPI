@@ -15,7 +15,7 @@ public class ObjectToXml {
 		marshallerObj.setProperty(Marshaller.JAXB_FORMATTED_OUTPUT, true);  
 		
 		Employee emp1=new Employee(101,"arun","jaipur",40000);  
-	    Employee emp2=new Employee(101,"sharma","dehradun",50000);  
+	    Employee emp2=new Employee(102,"sharma","dehradun",50000);  
 	    
 	    ArrayList<Employee> list=new ArrayList<Employee>();  
 	    list.add(emp1);  
