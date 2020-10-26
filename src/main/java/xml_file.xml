@@ -1,16 +1,15 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE XML>
-<office id = '1'>
-	<employee>
-		<id>101</id>
-		<name>raju</name>
-		<address>pune</address>
-		<salary>20000</salary>
-	</employee>
-	<employee>
-		<id>102</id>
-		<name>babu bhaiya</name>
-		<address>delhi</address>
-		<salary>30000</salary>
-	</employee>
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<office id="1">
+    <employee>
+        <address>jaipur</address>
+        <id>101</id>
+        <name>arun</name>
+        <salary>40000</salary>
+    </employee>
+    <employee>
+        <address>dehradun</address>
+        <id>101</id>
+        <name>sharma</name>
+        <salary>50000</salary>
+    </employee>
 </office>
