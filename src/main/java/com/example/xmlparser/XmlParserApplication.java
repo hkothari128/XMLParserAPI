@@ -14,14 +14,14 @@ public class XmlParserApplication {
 		SpringApplication.run(XmlParserApplication.class, args);
 //		XmlToObject obj1 = new XmlToObject();
 //		obj1.unmarshalling();
-		ObjectToXml obj2 = new ObjectToXml();
-		try {
-			obj2.marshalling();
-			System.out.println("SAVED");
-		} catch (JAXBException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
+//		ObjectToXml obj2 = new ObjectToXml();
+//		try {
+//			obj2.marshalling();
+//			System.out.println("SAVED");
+//		} catch (JAXBException e) {
+//			// TODO Auto-generated catch block
+//			e.printStackTrace();
+//		}
 	}
 
 }
