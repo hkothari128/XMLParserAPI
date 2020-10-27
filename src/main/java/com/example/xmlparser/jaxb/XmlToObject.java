@@ -7,23 +7,30 @@ import javax.xml.bind.JAXBContext;
 import javax.xml.bind.JAXBException;
 import javax.xml.bind.Unmarshaller;
 
+import org.springframework.stereotype.Service;
+
+@Service
 public class XmlToObject {
-	public void unmarshalling() {
+	public Office unmarshalling() {
+		Office offc = null;
 		try {
-			File file = new File("/Users/ruuh/git/XMLParserAPI/src/main/java/xml_file.xml");  
+			File file = new File("/home/hkothari/starter_assignments/XMLParserAPI/src/main/java/xml_file2.xml");  
 	        JAXBContext jaxbContext = JAXBContext.newInstance(Office.class);  
 	   
 	        Unmarshaller jaxbUnmarshaller = jaxbContext.createUnmarshaller();  
-	        Office offc= (Office) jaxbUnmarshaller.unmarshal(file);  
-	        System.out.println(offc.getId());  
-	        System.out.println("Employee:");  
-	        List<Employee> list=offc.getEmployee();  
-	        for(Employee emp:list)  
-	          System.out.println(emp.getId()+" "+emp.getName()+"  "+emp.getAddress());  
+	        offc= (Office) jaxbUnmarshaller.unmarshal(file);
+	        return offc;
+//	        System.out.println(offc.getId());  
+//	        System.out.println("Employee:");  
+//	        List<Employee> list=offc.getEmployee();  
+//	        for(Employee emp:list)  
+//	          System.out.println(emp.getId()+" "+emp.getName()+"  "+emp.getAddress());  
 	   
 	      } catch (JAXBException e) {  
 	        e.printStackTrace();  
-	      }  
+	      }
+		return offc;
+		
 	}
 
 }

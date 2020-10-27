@@ -17,6 +17,7 @@ public class XmlParserApplication {
 		ObjectToXml obj2 = new ObjectToXml();
 		try {
 			obj2.marshalling();
+			System.out.println("SAVED");
 		} catch (JAXBException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();

@@ -1,5 +1,9 @@
 package com.example.xmlparser.jaxb;
 
+import javax.xml.bind.annotation.XmlElement;
+import javax.xml.bind.annotation.XmlRootElement;
+
+@XmlRootElement
 public class Employee {
 	private int id;
 	private String name;
@@ -15,24 +19,31 @@ public class Employee {
 		this.address = address;
 		this.salary = salary;
 	}
+	@XmlElement
 	public int getId() {
 		return id;
 	}
 	public void setId(int id) {
 		this.id = id;
 	}
+	
+	@XmlElement
 	public String getName() {
 		return name;
 	}
 	public void setName(String name) {
 		this.name = name;
 	}
+	
+	@XmlElement
 	public String getAddress() {
 		return address;
 	}
 	public void setAddress(String address) {
 		this.address = address;
 	}
+	
+	@XmlElement
 	public int getSalary() {
 		return salary;
 	}

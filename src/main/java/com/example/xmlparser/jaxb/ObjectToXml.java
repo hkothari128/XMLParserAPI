@@ -14,7 +14,7 @@ public class ObjectToXml {
 		Marshaller marshallerObj = contextObj.createMarshaller(); 
 		marshallerObj.setProperty(Marshaller.JAXB_FORMATTED_OUTPUT, true);  
 		
-		Employee emp1=new Employee(101,"arun","jaipur",40000);  
+		Employee emp1=new Employee(101,"arunachal","jaipur",40000);  
 	    Employee emp2=new Employee(102,"sharma","dehradun",50000);  
 	    
 	    ArrayList<Employee> list=new ArrayList<Employee>();  
@@ -23,7 +23,7 @@ public class ObjectToXml {
 
 	    Office offc=new Office(1,list);  
 	    try {
-			marshallerObj.marshal(offc, new FileOutputStream("/Users/ruuh/git/XMLParserAPI/src/main/java/xml_file.xml"));
+			marshallerObj.marshal(offc, new FileOutputStream("/home/hkothari/starter_assignments/XMLParserAPI/src/main/java/xml_file2.xml"));
 		} catch (FileNotFoundException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
