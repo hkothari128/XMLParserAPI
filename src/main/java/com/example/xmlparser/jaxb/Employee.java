@@ -1,5 +1,9 @@
 package com.example.xmlparser.jaxb;
 
+
+import java.util.ArrayList;
+import java.util.List;
+
 import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlRootElement;
 
@@ -49,6 +53,24 @@ public class Employee {
 	}
 	public void setSalary(int salary) {
 		this.salary = salary;
+	}
+	
+	public List<Object> getAttributes() {
+		List<Object> attr = new ArrayList<Object>();
+		attr.add(this.id);
+		attr.add(this.name);
+		attr.add(this.address);
+		attr.add(this.salary);
+		return attr;
+	}
+	
+	public static List<String> getAttributeNames() {
+		List<String> attrNames = new ArrayList<String>();
+		attrNames.add("id");
+		attrNames.add("name");
+		attrNames.add("address");
+		attrNames.add("salary");
+		return attrNames;
 	}
 	
 }
