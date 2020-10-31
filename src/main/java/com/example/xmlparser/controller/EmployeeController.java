@@ -114,16 +114,27 @@ public class EmployeeController {
 		
 	}
 	
-//	@PostMapping("/edit/{id}")
-//	public String editEmployee(Model model, Employee emp) {
-//		for(Employee e : offc.getEmployee()){
-//			//System.out.println(e.toString());
-//			if(e.getId() == emp.getId()) {
-//				int i = list.indexOf(e);
-//				offc.getEmployee().set(i,emp);       
-//			}
-//		}
-//		return index(model);
-//		//return "redirect;/";
-//	}
+	@PostMapping("/edit")
+	public String editEmployee(Model model, Employee emp) {
+		for(Employee e : offc.getEmployee()){
+			//System.out.println(e.toString());
+			if(e.getId() == emp.getId()) {
+				int i = list.indexOf(e);
+				offc.getEmployee().set(i,emp);       
+			}
+		}
+		return index(model);
+		//return "redirect;/";
+	}
+	
+	@GetMapping("/delete")
+	public String deleteEmployee(Model model, Employee emp ) {
+		for(Employee e : offc.getEmployee()) {
+			if(e.getId()==emp.getId()) {
+				int i = list.indexOf(e);
+				offc.getEmployee().remove(i);
+			}
+		}
+		return index(model);
+	}
 }

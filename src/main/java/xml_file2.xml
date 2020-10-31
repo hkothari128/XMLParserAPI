@@ -1,9 +1,21 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <office id="1">
     <employee>
-        <address>dsgsdg</address>
-        <id>123</id>
-        <name>ram</name>
-        <salary>23</salary>
+        <address>kanpur</address>
+        <id>43534</id>
+        <name>rajat</name>
+        <salary>20000</salary>
+    </employee>
+    <employee>
+        <address>kanpur</address>
+        <id>43534</id>
+        <name>rajatbhatt</name>
+        <salary>20000</salary>
+    </employee>
+    <employee>
+        <address>ald</address>
+        <id>43534</id>
+        <name>rohit</name>
+        <salary>100</salary>
     </employee>
 </office>

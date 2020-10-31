@@ -13,7 +13,7 @@
 <body>
 
  <div class="form jumbotron">
-	<form>
+	<form action="#" th:action="@{/new}" method="post" th:object="${listEmployees}">
 		<div class="form-group">
 			<label for="id">id</label>
 			<input type="text" name="id" th:value="${employee.id}" />
@@ -30,6 +30,7 @@
 			<label for="salary">salary</label>
 			<input type="text" name="salary" th:value="${employee.salary}"/>
 		</div>
+		<button type="submit"> Edit</button>
 	</form>
  </div>
 </body>
