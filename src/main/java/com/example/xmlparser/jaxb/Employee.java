@@ -27,6 +27,10 @@ public class Employee {
 		this.id = id;
 	}
 	
+	@Override
+	public String toString() {
+		return "Employee [id=" + id + ", name=" + name + ", address=" + address + ", salary=" + salary + "]";
+	}
 	@XmlElement
 	public String getName() {
 		return name;
