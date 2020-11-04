@@ -1,5 +1,6 @@
 package com.example.xmlparser.jaxb;
 
+import java.util.ArrayList;
 import java.util.List;
 import javax.xml.bind.annotation.XmlAttribute;
 import javax.xml.bind.annotation.XmlElement;
@@ -31,7 +32,7 @@ public class Office {
 	
 	@XmlElement
 	public List<Employee> getEmployee() {
-		return employee;
+		return this.employee;
 	}
 	public void setEmployee(List<Employee> employee) {
 		this.employee = employee;

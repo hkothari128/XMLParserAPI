@@ -47,23 +47,15 @@ public class EmployeeController {
 	XmlToObject x2o;
 	
 	@Autowired
-
 	ObjectToExcel o2xl;
 
+	@Autowired
 	ObjectToXml o2x;
 	
-	@Autowired
-	Office offc;
-	
-	ArrayList<Employee> list=new ArrayList<Employee>();
-	
-
 	@GetMapping("/")
 	public String index(Model model) {
-		//Office 
-		//System.out.println("hellllloooooooo");
-		offc = x2o.unmarshalling();
-		
+		System.out.println("hit");
+		Office offc = x2o.unmarshalling();
 		model.addAttribute("listEmployees", offc.getEmployee());
 		return "index";
 	}
@@ -72,7 +64,7 @@ public class EmployeeController {
 	public String newForm() {
 		return "new";
 	}
-	
+
 	@GetMapping("/edit/{id}")
 	public String edit(Model model, @PathVariable int id) {
 		Office offc = x2o.unmarshalling();
@@ -81,17 +73,17 @@ public class EmployeeController {
 			if(e.getId() == id)
 				emp = e;
 		}
-		
+
 		model.addAttribute("employee", emp);
 		return "edit";
 	}
-	
+
 	@GetMapping("/employees")
 	@ResponseBody
 	public Office getEmployees(Model model) {
-		return x2o.unmarshalling();		
+		return x2o.unmarshalling();
 	}
-	
+
 	@GetMapping(path = "/employee/{id}")
 	@ResponseBody
 	public Employee getEmployee(@PathVariable("id") int id) {
@@ -100,10 +92,10 @@ public class EmployeeController {
 			if(e.getId() == id)
 				return e;
 		}
-		
+
 		return null;
 	}
-	
+
 
 	@GetMapping(path="/report")
 	@ResponseBody
@@ -122,54 +114,73 @@ public class EmployeeController {
             return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
         }
     }
-	
+
 
 	@PostMapping("/new")
-	public String addEmployee(Model model ,@ModelAttribute("emp") Employee emp) {
+	public String addEmployee(Model model, @ModelAttribute("emp") Employee emp) {
+//		System.out.println(emp.toString());
 		//System.out.println("hellllloooooooo");
-		//Employee emp=new Employee(101,"arunachal","jaipur",40000);  
-	    //Employee emp2=new Employee(102,"sharma","dehradun",50000);  
-	    
-	    //List <Employee> list=new ArrayList<Employee>();  
-	    list.add(emp);  
-	    //list.add(emp2);
-		offc.setEmployee(list);
-		//System.out.println(emp.toString()+""+list);
+		//Employee emp=new Employee(101,"arunachal","jaipur",40000);
+	    //Employee emp2=new Employee(102,"sharma","dehradun",50000);
+		Office offc = x2o.unmarshalling();
+	    List <Employee> list= offc.getEmployee();
+	    list.add(emp);
 		try {
 			//System.out.println("inside try in controller");
-			o2x.marshalling(offc.getEmployee());
+			o2x.marshalling(list);
 			//model.addAttribute("listEmployees", offc.getEmployee());
 		} catch (JAXBException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		return index(model);
-		//return "redirect:/";
-		
+//		return index(model);
+		return "redirect:/";
+
 	}
-	
+
 	@PostMapping("/edit")
-	public String editEmployee(Model model, Employee emp) {
-		for(Employee e : offc.getEmployee()){
+	public String editEmployee(Employee emp) {
+		System.out.println( " EDIT " + emp.toString());
+		Office offc = x2o.unmarshalling();
+		List<Employee> list = offc.getEmployee();
+		for(Employee e : list){
 			//System.out.println(e.toString());
 			if(e.getId() == emp.getId()) {
 				int i = list.indexOf(e);
-				offc.getEmployee().set(i,emp);       
+				list.set(i,emp);
 			}
 		}
-		return index(model);
-		//return "redirect;/";
+		try {
+			//System.out.println("inside try in controller");
+			o2x.marshalling(list);
+			//model.addAttribute("listEmployees", offc.getEmployee());
+		} catch (JAXBException ex) {
+			// TODO Auto-generated catch block
+			ex.printStackTrace();
+		}
+//		return index(model);
+		return "redirect:/";
 	}
-	
-	@GetMapping("/delete")
-	public String deleteEmployee(Model model, Employee emp ) {
+
+	@GetMapping("/delete/{id}")
+	public String deleteEmployee(@PathVariable int id ) {
+
+		Office offc = x2o.unmarshalling();
+		List<Employee> list = new ArrayList<Employee>();
 		for(Employee e : offc.getEmployee()) {
-			if(e.getId()==emp.getId()) {
-				int i = list.indexOf(e);
-				offc.getEmployee().remove(i);
+			if(e.getId() != id) {
+				list.add(e);
 			}
 		}
-		return index(model);
+		try {
+			//System.out.println("inside try in controller");
+			o2x.marshalling(list);
+			//model.addAttribute("listEmployees", offc.getEmployee());
+		} catch (JAXBException ex) {
+			// TODO Auto-generated catch block
+			ex.printStackTrace();
+		}
+		return "redirect:/";
 	}
 
 }
