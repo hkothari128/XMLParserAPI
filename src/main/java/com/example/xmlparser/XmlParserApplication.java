@@ -26,6 +26,7 @@ public class XmlParserApplication {
 ////		ObjectToXml obj2 = new ObjectToXml();
 //		try {
 //			Office offc = obj1.unmarshalling();
+//			System.out.println(offc.getEmployee().size());
 //			xl.convert(offc);
 ////			obj2.marshalling();
 //			System.out.println("SAVED");

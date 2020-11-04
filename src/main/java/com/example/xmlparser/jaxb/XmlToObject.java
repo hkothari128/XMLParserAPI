@@ -15,7 +15,7 @@ public class XmlToObject {
 		Office offc = null;
 		try {
 
-			File file = new File("/home/hkothari/assignments/XMLParserAPI/src/main/java/xml_file2.xml");  
+			File file = new File("/home/hkothari/assignments/XMLParserAPI/src/main/java/xml_file.xml");
 
 	        JAXBContext jaxbContext = JAXBContext.newInstance(Office.class);  
 	   

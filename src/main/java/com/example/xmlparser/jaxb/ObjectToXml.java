@@ -27,7 +27,7 @@ public class ObjectToXml {
 
 	    Office offc=new Office(1,list);  
 	    try {
-			marshallerObj.marshal(offc, new FileOutputStream("/home/hkothari/assignments/XMLParserAPI/src/main/java/xml_file2.xml"));
+			marshallerObj.marshal(offc, new FileOutputStream("/home/hkothari/assignments/XMLParserAPI/src/main/java/xml_file.xml"));
 
 		} catch (FileNotFoundException e) {
 			// TODO Auto-generated catch block
