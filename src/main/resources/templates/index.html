@@ -26,6 +26,7 @@
      <th>Address</th>
      <th>Salary</th>
      <th></th>
+     <th></th>
     </tr>
    </thead>
    <tbody>
@@ -35,10 +36,15 @@
      <td th:text="${employee.address}"></td>
      <td th:text="${employee.salary}"></td>
      <td><a th:href="@{'/edit/'+ ${employee.id}}">edit</a></td>
+     <td>
+     	<form action="#" th:action="@{/delete}" method="get" th:object="${listEmployees}">
+     		<button type="submit"> Delete </button>
+     	</form>	
+     </td>
     </tr>
    </tbody>
   </table>
-  <a class="btn btn-primary" href="/new"> add new employee </a>
+  <a class="btn btn-primary" href="/new"> add employee </a>
  </div>
 </body>
 </html>

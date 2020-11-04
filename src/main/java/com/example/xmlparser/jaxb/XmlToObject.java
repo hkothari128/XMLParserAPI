@@ -14,7 +14,9 @@ public class XmlToObject {
 	public Office unmarshalling() {
 		Office offc = null;
 		try {
+
 			File file = new File("/home/hkothari/assignments/XMLParserAPI/src/main/java/xml_file2.xml");  
+
 	        JAXBContext jaxbContext = JAXBContext.newInstance(Office.class);  
 	   
 	        Unmarshaller jaxbUnmarshaller = jaxbContext.createUnmarshaller();  
