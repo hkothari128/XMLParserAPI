@@ -1,15 +1,9 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <office id="1">
     <employee>
-        <address>mumbai</address>
-        <id>1</id>
-        <name>hk</name>
-        <salary>100</salary>
-    </employee>
-    <employee>
-        <address>lucknow</address>
-        <id>2</id>
-        <name>rpal</name>
-        <salary>2000</salary>
+        <address>ald</address>
+        <id>123</id>
+        <name>rajatkhanna</name>
+        <salary>23</salary>
     </employee>
 </office>

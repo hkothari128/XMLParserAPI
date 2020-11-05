@@ -37,5 +37,10 @@ public class Office {
 	public void setEmployee(List<Employee> employee) {
 		this.employee = employee;
 	}
+	
+	@Override
+	public String toString() {
+		return "Office [id=" + id + ", employee=" + employee + "]";
+	}
 
 }

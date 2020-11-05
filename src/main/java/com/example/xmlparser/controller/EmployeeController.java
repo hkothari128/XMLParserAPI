@@ -123,6 +123,7 @@ public class EmployeeController {
 		//Employee emp=new Employee(101,"arunachal","jaipur",40000);
 	    //Employee emp2=new Employee(102,"sharma","dehradun",50000);
 		Office offc = x2o.unmarshalling();
+		System.out.println(offc.toString());
 	    List <Employee> list= offc.getEmployee();
 	    list.add(emp);
 		try {
