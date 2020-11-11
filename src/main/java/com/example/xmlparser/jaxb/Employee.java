@@ -4,30 +4,39 @@ package com.example.xmlparser.jaxb;
 import java.util.ArrayList;
 import java.util.List;
 
-import javax.xml.bind.annotation.XmlElement;
-import javax.xml.bind.annotation.XmlRootElement;
+import javax.xml.bind.annotation.*;
+import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
 
 @XmlRootElement
+@XmlAccessorType(XmlAccessType.FIELD)
 public class Employee {
-	private int id;
+
+
+	@XmlElement
+	@XmlID
+	private String id;
+	@XmlElement
 	private String name;
+	@XmlElement
 	private String address;
+	@XmlElement
 	private int salary;
 	public Employee() {
 		super();
 	}
-	public Employee(int id, String name, String address, int salary) {
+	public Employee(String id, String name, String address, int salary) {
 		super();
 		this.id = id;
 		this.name = name;
 		this.address = address;
 		this.salary = salary;
 	}
-	@XmlElement
-	public int getId() {
+
+
+	public String getId() {
 		return id;
 	}
-	public void setId(int id) {
+	public void setId(String id) {
 		this.id = id;
 	}
 	
@@ -35,7 +44,7 @@ public class Employee {
 	public String toString() {
 		return "Employee [id=" + id + ", name=" + name + ", address=" + address + ", salary=" + salary + "]";
 	}
-	@XmlElement
+
 	public String getName() {
 		return name;
 	}
@@ -43,7 +52,7 @@ public class Employee {
 		this.name = name;
 	}
 	
-	@XmlElement
+
 	public String getAddress() {
 		return address;
 	}
@@ -51,7 +60,7 @@ public class Employee {
 		this.address = address;
 	}
 	
-	@XmlElement
+
 	public int getSalary() {
 		return salary;
 	}

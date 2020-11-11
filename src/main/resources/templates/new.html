@@ -49,27 +49,28 @@ button:hover span {
 <body>
 
  <div class="form jumbotron">
+
 	<form action="#" th:action="@{/new}" method="post" th:object="${listEmployees}"> 
 		<div class="form-group">
 			<label for="id">id</label>
-			<input type="text" name="id" />
+			<input type="text" name="id" th:value="${emp} ? ${emp.id}: ''" />
 		</div>
 		<div class="form-group">
 			<label for="name">name</label>
-			<input type="text" name="name" />
+			<input type="text" name="name" th:value="${emp} ? ${emp.name}: ''" />
 		</div>
 		<div class="form-group">
 			<label for="address">address</label>
-			<input type="text" name="address" />
+			<input type="text" name="address" th:value="${emp} ? ${emp.address}: ''" />
 		</div>
 		<div class="form-group">
 			<label for="salary">salary</label>
-			<input type="text" name="salary" />
+			<input type="text" name="salary" th:value="${emp} ? ${emp.salary}: ''" />
 		</div>
 		<button type="submit"> Add</button>
 	</form>
 	<!-- <a class="btn btn-primary" href="/"> add</a> -->
-	
+	 <h6 class="text-danger" th:if="${Alert != null}" th:text="${Alert}"></h6>
  </div>
 </body>
 </html>

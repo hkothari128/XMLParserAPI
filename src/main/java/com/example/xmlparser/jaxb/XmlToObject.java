@@ -17,7 +17,7 @@ public class XmlToObject {
 		//Office offc;
 		try {
 
-			File file = new File("/Users/ruuh/git/XMLParserAPI/src/main/java/xml_file.xml");
+			File file = new File(System.getenv().get("PROJECT_BASE") + "/xml_file.xml");
 
 	        JAXBContext jaxbContext = JAXBContext.newInstance(Office.class);  
 	   

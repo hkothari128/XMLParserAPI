@@ -66,11 +66,11 @@ public class EmployeeController {
 	}
 
 	@GetMapping("/edit/{id}")
-	public String edit(Model model, @PathVariable int id) {
+	public String edit(Model model, @PathVariable String id) {
 		Office offc = x2o.unmarshalling();
 		Employee emp = null;
 		for(Employee e:offc.getEmployee()) {
-			if(e.getId() == id)
+			if(e.getId().equalsIgnoreCase(id))
 				emp = e;
 		}
 
@@ -86,10 +86,10 @@ public class EmployeeController {
 
 	@GetMapping(path = "/employee/{id}")
 	@ResponseBody
-	public Employee getEmployee(@PathVariable("id") int id) {
+	public Employee getEmployee(@PathVariable("id") String id) {
 		Office offc = x2o.unmarshalling();
 		for(Employee e:offc.getEmployee()) {
-			if(e.getId() == id)
+			if(e.getId().equalsIgnoreCase(id))
 				return e;
 		}
 
@@ -119,13 +119,19 @@ public class EmployeeController {
 	@PostMapping("/new")
 	public String addEmployee(Model model, @ModelAttribute("emp") Employee emp) {
 //		System.out.println(emp.toString());
-		//System.out.println("hellllloooooooo");
-		//Employee emp=new Employee(101,"arunachal","jaipur",40000);
-	    //Employee emp2=new Employee(102,"sharma","dehradun",50000);
 		Office offc = x2o.unmarshalling();
-		System.out.println(offc.toString());
-	    List <Employee> list= offc.getEmployee();
+		List <Employee> list= offc.getEmployee();
+		for(Employee e: list){
+			if(e.getId().equalsIgnoreCase((emp.getId()))) {
+				model.addAttribute("Alert",
+						"Employee with id=" + emp.getId() + " already exists, Please put another id");
+				model.addAttribute("emp", emp);
+				return "new";
+			}
+		}
+
 	    list.add(emp);
+
 		try {
 			//System.out.println("inside try in controller");
 			o2x.marshalling(list);
@@ -134,7 +140,6 @@ public class EmployeeController {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-//		return index(model);
 		return "redirect:/";
 
 	}
@@ -146,37 +151,34 @@ public class EmployeeController {
 		List<Employee> list = offc.getEmployee();
 		for(Employee e : list){
 			//System.out.println(e.toString());
-			if(e.getId() == emp.getId()) {
+			if(e.getId().equalsIgnoreCase(emp.getId())) {
 				int i = list.indexOf(e);
 				list.set(i,emp);
 			}
 		}
 		try {
-			//System.out.println("inside try in controller");
 			o2x.marshalling(list);
-			//model.addAttribute("listEmployees", offc.getEmployee());
 		} catch (JAXBException ex) {
 			// TODO Auto-generated catch block
 			ex.printStackTrace();
 		}
-//		return index(model);
 		return "redirect:/";
 	}
 
 	@GetMapping("/delete/{id}")
-	public String deleteEmployee(@PathVariable int id ) {
+	public String deleteEmployee(@PathVariable String id ) {
 
 		Office offc = x2o.unmarshalling();
 		List<Employee> list = new ArrayList<Employee>();
 		for(Employee e : offc.getEmployee()) {
-			if(e.getId() != id) {
+			if(!e.getId().equalsIgnoreCase(id)) {
 				list.add(e);
 			}
 		}
 		try {
 			//System.out.println("inside try in controller");
 			o2x.marshalling(list);
-			//model.addAttribute("listEmployees", offc.getEmployee());
+
 		} catch (JAXBException ex) {
 			// TODO Auto-generated catch block
 			ex.printStackTrace();
