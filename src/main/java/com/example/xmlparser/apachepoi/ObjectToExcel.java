@@ -53,7 +53,7 @@ public class ObjectToExcel {
 		    }
 		}
 
-		writeToFile("/Users/ruuh/git/XMLParserAPI/src/main/java/output.xls", workbook);
+		writeToFile(System.getenv().get("PROJECT_BASE") + "/output.xls", workbook);
 		return workbook;
 	}
 	

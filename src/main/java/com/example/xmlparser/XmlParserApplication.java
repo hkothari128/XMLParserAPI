@@ -2,6 +2,7 @@ package com.example.xmlparser;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
 
 import javax.xml.bind.JAXBException;
 
@@ -21,6 +22,9 @@ public class XmlParserApplication {
 
 	public static void main(String[] args) {
 		SpringApplication.run(XmlParserApplication.class, args);
+		Map<String, String> env = System.getenv();
+		System.out.println(env.get("PROJECT_BASE"));
+
 //		XmlToObject obj1 = new XmlToObject();
 //		ObjectToExcel xl = new ObjectToExcel();
 ////		ObjectToXml obj2 = new ObjectToXml();
