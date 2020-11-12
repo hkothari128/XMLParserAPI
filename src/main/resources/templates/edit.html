@@ -54,7 +54,7 @@ button:hover span {
 	<form action="#" th:action="@{/edit}" method="post" th:object="${listEmployees}">
 		<div class="form-group">
 			<label for="id">id</label>
-			<input type="text" name="id" th:value="${employee.id}" disabled />
+			<input type="text" name="id" th:value="${employee.id}" th:readonly="true" />
 		</div>
 		<div class="form-group">
 			<label for="name">name</label>
@@ -68,7 +68,10 @@ button:hover span {
 			<label for="salary">salary</label>
 			<input type="text" name="salary" th:value="${employee.salary}"/>
 		</div>
-		<button type="submit"> Edit</button>
+		<div>
+			<button type="submit"> Edit</button>
+			<a class="btn btn-danger" href="/"> Go back</a>
+		</div>
 	</form>
  </div>
 </body>
