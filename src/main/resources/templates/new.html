@@ -67,7 +67,10 @@ button:hover span {
 			<label for="salary">salary</label>
 			<input type="text" name="salary" th:value="${emp} ? ${emp.salary}: ''" />
 		</div>
-		<button type="submit"> Add</button>
+		<div>
+			<button type="submit"> Add</button>
+			<a class="btn btn-danger" href="/"> Go back</a>
+		</div>
 	</form>
 	<!-- <a class="btn btn-primary" href="/"> add</a> -->
 	 <h6 class="text-danger" th:if="${Alert != null}" th:text="${Alert}"></h6>
